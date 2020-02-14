@@ -7,6 +7,7 @@ import PageLoader from './PageLoader';
 const LearningModule = (props) => {
   const [currentQuestion, setCurrentQuestion] = React.useState({});
   const [loading, setLoading] = React.useState(false);
+  const [showingModal, setShowingModal] = React.useState(false);
 
   React.useEffect(()=>{
     getQuestion(1);
@@ -24,15 +25,19 @@ const LearningModule = (props) => {
     1500)
   }
 
+  const handleInfoBtn = () => {
+    setShowingModal(!showingModal);
+  }
+
   if(currentQuestion.id){
     var progressBar = <ProgressBar currentQuestion={currentQuestion}/>
-    var questionBody = <QuestionBody currentQuestion={currentQuestion} getQuestion={getQuestion} loading={loading} setLoading={setLoading}/>
+    var questionBody = <QuestionBody currentQuestion={currentQuestion} getQuestion={getQuestion} loading={loading} setLoading={setLoading} showingModal={showingModal} handleInfoBtn={handleInfoBtn}/>
   } else {
     var pageLoader = <PageLoader />;
   }
 
   return (
-    <div class="learning-module">
+    <div className="learning-module">
       {progressBar}
       {questionBody}
       {pageLoader}

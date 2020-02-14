@@ -8,6 +8,8 @@
 
 @import 'scss/buttons/Button';
 
+@import 'scss/components/Modal';
+
 body{
   background-image: url("/assets/background.png");
   background-position: center;
@@ -33,6 +35,10 @@ body{
     text-align: center;
     color: #00bdff;
     font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 #questionHeaderContainer{
   margin: 25px 10px;

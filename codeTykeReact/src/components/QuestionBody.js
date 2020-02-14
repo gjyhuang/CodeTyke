@@ -1,6 +1,8 @@
 import React from 'react';
 import QuestionSelectionArea from './QuestionSelectionArea';
 import Button from './Button';
+import Modal from './Modal';
+import {BsInfoFill} from 'react-icons/bs';
 
 
 const QuestionBody = (props) => {
@@ -24,12 +26,13 @@ const QuestionBody = (props) => {
 
     return (
       <>
+        <Modal showingModal={props.showingModal} handleInfoBtn={props.handleInfoBtn} modalText={props.currentQuestion.additionalInfo}/>
         <div id="questionHeaderContainer">
           <div id="questionHeader">
-            {props.currentQuestion.title}
-          </div>
-          <div id="questionSubHeader">
-            {props.currentQuestion.additionalInfo}
+            <div>{props.currentQuestion.title}</div>
+            <div className="icon-info-i">
+              <BsInfoFill onClick={props.handleInfoBtn}/>
+            </div>
           </div>
         </div>
         <div id="outerBox">
